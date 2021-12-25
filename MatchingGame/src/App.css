@@ -16,7 +16,6 @@
 }
 .Image{
   height: 600px;
-  background-color: darkgoldenrod;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -30,7 +29,6 @@
 .BottomBar{
   display: flex;
   height: 150px;
-  background-color: crimson;
   justify-content: center;
   align-items: center;
   gap: 30rem;

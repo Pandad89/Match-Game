@@ -12,15 +12,19 @@ class App extends React.Component {
     this.state = {
       Correct: 0,
       Wrong: 0,
+      QuestionNum: 1,
       Color: [
         'green',
         'red',
+        'white',
+        'darkgoldenrod',
+        'crimson',
       ],
       ButtonText: [
         'Correct',
         'Wrong',
       ],
-      Question: 'Question 1',
+      ColorIndex: 0,
       BackgroundColor: [
         'darkgreen',
         'coral',
@@ -32,21 +36,40 @@ class App extends React.Component {
         'hotpink',
         'orangered',
         'saddlebrown',
+        'burlywood',
+        'cadetblue',
+        'darkmagenta',
+        'lavender',
+        'mediumseagreen',
+        'thistle',
+        'rosybrown',
+        'teal',
+        'sienna',
+        'salmon',
+        'palevioletred',
+        'darkviolet',
+        'olive',
+        'indigo',
+        'aquamarine',
       ],
+      EndGame: false,
     }
-
   }
 
   correctClickHandler = () => {
-    this.setState({
-      Correct: this.state.Correct += 1,
-      Question: 'Question 2'
-    })
+    if (this.state.QuestionNum <= 25) {
+      this.setState({
+        Correct: this.state.Correct += 1,
+        QuestionNum: this.state.QuestionNum += 1,
+        ColorIndex: this.state.ColorIndex += 1,
+      })
+    }
   }
   wrongClickHandler = () => {
     this.setState({
-      Wrong: this.state.Wrong += 1
-
+      Wrong: this.state.Wrong += 1,
+      QuestionNum: this.state.QuestionNum += 1,
+      ColorIndex: this.state.ColorIndex += 1,
     })
   }
 
@@ -54,9 +77,9 @@ class App extends React.Component {
     return (
       <div className='Background'>
         <div className="AppBody">
-          <TopBar Correct={this.state.Correct} Wrong={this.state.Wrong} Color={this.state.Color}/>
-          <Image Question={this.state.Question} Color={this.state.BackgroundColor}/>
-          <BottomBar ButtonText={this.state.ButtonText} Click={[this.correctClickHandler, this.wrongClickHandler]}/>
+          <TopBar Correct={this.state.Correct} Wrong={this.state.Wrong} Color={this.state.Color} />
+          <Image Question={this.state.QuestionNum} Color={this.state.Color} BackgroundColor={this.state.BackgroundColor} ColorIndex={this.state.ColorIndex} />
+          <BottomBar ButtonText={this.state.ButtonText} Click={[this.correctClickHandler, this.wrongClickHandler]} Color={this.state.Color}/>
         </div>
       </div>
     )
