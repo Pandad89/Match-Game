@@ -58,20 +58,22 @@ class App extends React.Component {
 
   correctClickHandler = () => {
     if (this.state.QuestionNum <= 25) {
-      this.setState({
-        Correct: this.state.Correct += 1,
-        QuestionNum: this.state.QuestionNum += 1,
-        ColorIndex: this.state.ColorIndex += 1,
-      })
+      this.setState(prevState => {
+        return{
+        Correct: prevState.Correct + 1,
+        QuestionNum: prevState.QuestionNum + 1,
+        ColorIndex: prevState.ColorIndex + 1,
+      }})
     }
   }
   wrongClickHandler = () => {
     if (this.state.QuestionNum <= 25) {
-      this.setState({
-        Wrong: this.state.Wrong += 1,
-        QuestionNum: this.state.QuestionNum += 1,
-        ColorIndex: this.state.ColorIndex += 1,
-      })
+      this.setState(prevState => {
+        return{
+        Wrong: this.state.Wrong + 1,
+        QuestionNum: this.state.QuestionNum + 1,
+        ColorIndex: this.state.ColorIndex + 1,
+      }})
     }
   }
 
