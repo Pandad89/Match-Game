@@ -21,8 +21,8 @@ class App extends React.Component {
         'crimson',
       ],
       ButtonText: [
-        'Correct',
-        'Wrong',
+        'Yes',
+        'No',
       ],
       ColorIndex: 0,
       BackgroundColor: [
@@ -66,11 +66,13 @@ class App extends React.Component {
     }
   }
   wrongClickHandler = () => {
-    this.setState({
-      Wrong: this.state.Wrong += 1,
-      QuestionNum: this.state.QuestionNum += 1,
-      ColorIndex: this.state.ColorIndex += 1,
-    })
+    if (this.state.QuestionNum <= 25) {
+      this.setState({
+        Wrong: this.state.Wrong += 1,
+        QuestionNum: this.state.QuestionNum += 1,
+        ColorIndex: this.state.ColorIndex += 1,
+      })
+    }
   }
 
   render() {
