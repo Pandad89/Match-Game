@@ -70,9 +70,9 @@ class App extends React.Component {
     if (this.state.QuestionNum <= 25) {
       this.setState(prevState => {
         return{
-        Wrong: this.state.Wrong + 1,
-        QuestionNum: this.state.QuestionNum + 1,
-        ColorIndex: this.state.ColorIndex + 1,
+        Wrong: prevState.Wrong + 1,
+        QuestionNum: prevState.QuestionNum + 1,
+        ColorIndex: prevState.ColorIndex + 1,
       }})
     }
   }
