@@ -52,7 +52,6 @@ class App extends React.Component {
         'indigo',
         'aquamarine',
       ],
-      EndGame: false,
     }
   }
 
